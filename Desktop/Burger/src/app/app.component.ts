@@ -44,10 +44,6 @@ export class AppComponent {
     this.listeTache.push(tache2); 
     this.listeTache.push(tache3); 
   }
-  
-  // ordonner(){
-
-  // }
 
   ajouter(){
 
@@ -72,7 +68,7 @@ export class AppComponent {
   }
 
   agrandir(event){
-    event.target.style.width = "20px"
+    event.target.style.width = "25px"
   }
 
   retrecir(event){
@@ -80,19 +76,24 @@ export class AppComponent {
   }
 
   modifier(tache:Taches){
-    // let index = this.listeTache.indexOf(tache);
-    // let nouveau = prompt("Modifiez la tâche", tache.description);
-    // if(nouveau != undefined && nouveau.length >= 5){
-    //   this.listeTache[index].description = nouveau;
-    // } else {
-    //   alert("La tâche doit faire plus de 5 caractères")
-    // }
-    
-
-    if(tache.statut === Statut.TODO){
-      tache.statut = Statut.DOING;
-    } else if(tache.statut === Statut.DOING){
-      tache.statut = Statut.DONE;
+    let index = this.listeTache.indexOf(tache);
+    let nouveau = prompt("Modifiez la tâche", tache.description);
+    if(nouveau != undefined && nouveau.length >= 5){
+      this.listeTache[index].description = nouveau;
+    } else {
+      alert("La tâche doit faire plus de 5 caractères")
     }
-  }
+
+  //   if(tache.statut === Statut.TODO){
+  //     tache.statut = Statut.DOING;
+  //   } else if(tache.statut === Statut.DOING){
+  //     tache.statut = Statut.DONE;
+  //   }
+  // }
+
+  // propose de modifier le statut quand on clique
+  // modifierStatut(){
+
+  // }
+}
 }

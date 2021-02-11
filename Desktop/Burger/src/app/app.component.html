@@ -1,52 +1,77 @@
-
 <h1>TODO List</h1>
+<div class="new">
+  <input id="saisieTache" type="text" (keyup)="onKeyUp($event)" style="display: inline-block;" />
+  <img title="Ajouter" width="20"
+    style="display:inline-block; vertical-align: bottom; margin-left: 5px; cursor: pointer;"
+    (mouseout)="retrecir($event)" (mouseover)="agrandir($event)"
+    src="https://secure.webtoolhub.com/static/resources/icons/set114/28bdd2bd.png" (click)="ajouter()" />
+</div>
 
-  <input id="saisieTache" type="text" (keyup)="onKeyUp($event)" style="display:inline-block"/> 
-  <img title="Ajouter" width="20" style="display:inline-block; vertical-align: bottom; margin-left: 5px; cursor: pointer;" (mouseout)="retrecir($event)" (mouseover)="agrandir($event)" src="https://secure.webtoolhub.com/static/resources/icons/set114/28bdd2bd.png" (click)="ajouter()"/>
-
-        
 
 
-  <div clas="containerParent">
-    <div class="container">
-      <div *ngFor="let tache of listeTache">
-      <mat-card *ngIf="tache.statut === 'A faire'">
+<div class="containerParent">
+
+  <div class="container">
+    <div class="headerContainer">A faire</div>
+    <div *ngFor="let tache of listeTache">
+      <mat-card class="statutAFaire" *ngIf="tache.statut === 'A faire'">
         <mat-card-header>
           <mat-card-title>{{ tache.description }}</mat-card-title>
+          <mat-card-actions>
+            <img title="Modifier statut" style="width: 20px; margin-left:15px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/OOjs_UI_icon_info.svg/1200px-OOjs_UI_icon_info.svg.png"
+              (mouseout)="retrecir($event)" (mouseover)="agrandir($event)"/>
+            <img title="Supprimer" style="cursor: pointer; float:right; margin: 0px 0px 0px 5px;"
+              (mouseout)="retrecir($event)" (mouseover)="agrandir($event)" (click)="supprimer(tache)" width="15"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1024px-Flat_cross_icon.svg.png" />
+              <img title="Modifier" style="cursor: pointer;float:right; margin-left: 5px;"
+              src="https://findicons.com/files/icons/977/rrze/720/pen.png" (mouseout)="retrecir($event)"
+              (mouseover)="agrandir($event)" (click)="modifier(tache)" width="15" />
+          </mat-card-actions>
         </mat-card-header>
-        
-          <img title="Supprimer" style="cursor: pointer; float:right; margin-left: 5px;" (mouseout)="retrecir($event)" (mouseover)="agrandir($event)"  (click)="supprimer(tache)" width="15" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1024px-Flat_cross_icon.svg.png"/>
-        <img src="https://findicons.com/files/icons/977/rrze/720/pen.png" title="Modifier" (mouseout)="retrecir($event)" (mouseover)="agrandir($event)" style="cursor: pointer;float:right" (click)="modifier(tache)" width="15"/>
-        
       </mat-card>
-    </div>
-    </div>
-
-    <div class="container">
-      <div *ngFor="let tache of listeTache">
-      <mat-card *ngIf="tache.statut === 'En cours'">
-        <mat-card-header>
-          <mat-card-title>{{ tache.description }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-actions>
-          <img title="Supprimer" style="cursor: pointer;float:right; margin-left: 5px;" (mouseout)="retrecir($event)" (mouseover)="agrandir($event)"  (click)="supprimer(tache)" width="15" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1024px-Flat_cross_icon.svg.png"/>
-        <img src="https://findicons.com/files/icons/977/rrze/720/pen.png" title="Modifier" (mouseout)="retrecir($event)" (mouseover)="agrandir($event)" style="cursor: pointer;float:right; margin-left: 5px;" (click)="modifier(tache)" width="15"/>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    </div>
-
-    <div class="container">
-      <div *ngFor="let tache of listeTache">
-      <mat-card *ngIf="tache.statut === 'Terminé'">
-        <mat-card-header>
-          <mat-card-title>{{ tache.description }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-actions>
-          <img title="Supprimer" style="cursor: pointer;float:right; margin-left: 5px;" (mouseout)="retrecir($event)" (mouseover)="agrandir($event)"  (click)="supprimer(tache)" width="15" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1024px-Flat_cross_icon.svg.png"/>
-        <img src="https://findicons.com/files/icons/977/rrze/720/pen.png" title="Modifier" (mouseout)="retrecir($event)" (mouseover)="agrandir($event)" style="cursor: pointer;float:right; margin-left: 5px;" (click)="modifier(tache)" width="15"/>
-        </mat-card-actions>
-      </mat-card>
-    </div>
     </div>
   </div>
+
+  <div class="container">
+    <div class="headerContainer">En cours</div>
+    <div *ngFor="let tache of listeTache">
+      <mat-card class="statutEnCours" *ngIf="tache.statut === 'En cours'">
+        <mat-card-header>
+          <mat-card-title>{{ tache.description }}</mat-card-title>
+          <mat-card-actions>
+            <img title="Modifier statut" style="width: 20px; margin-left:15px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/OOjs_UI_icon_info.svg/1200px-OOjs_UI_icon_info.svg.png"
+             (mouseout)="retrecir($event)" (mouseover)="agrandir($event)"/>
+            <img title="Supprimer" style="cursor: pointer; float:right; margin-left: 5px;" (mouseout)="retrecir($event)"
+              (mouseover)="agrandir($event)" (click)="supprimer(tache)" width="15"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1024px-Flat_cross_icon.svg.png" />
+            <img src="https://findicons.com/files/icons/977/rrze/720/pen.png" title="Modifier"
+              (mouseout)="retrecir($event)" (mouseover)="agrandir($event)"
+              style="cursor: pointer;float:right;margin-left: 5px; " (click)="modifier(tache)" width="15" />
+          </mat-card-actions>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="headerContainer">Terminé</div>
+    <div *ngFor="let tache of listeTache">
+      <mat-card class="statutTermine" *ngIf="tache.statut === 'Terminé'">
+        <mat-card-header>
+          <mat-card-title>{{ tache.description }}</mat-card-title>
+          <mat-card-actions>
+            <img title="Modifier statut" style="width: 20px; margin-left:15px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/OOjs_UI_icon_info.svg/1200px-OOjs_UI_icon_info.svg.png"
+              (mouseout)="retrecir($event)" (mouseover)="agrandir($event)"/>
+            <img title="Supprimer" style="cursor: pointer; float:right; margin-left: 5px;" (mouseout)="retrecir($event)"
+              (mouseover)="agrandir($event)" (click)="supprimer(tache)" width="15"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1024px-Flat_cross_icon.svg.png" />
+            <img src="https://findicons.com/files/icons/977/rrze/720/pen.png" title="Modifier"
+              (mouseout)="retrecir($event)" (mouseover)="agrandir($event)"
+              style="cursor: pointer;float:right; margin-left: 5px;" (click)="modifier(tache)" width="15" />
+          </mat-card-actions>
+        </mat-card-header>
+
+      </mat-card>
+    </div>
+  </div>
+</div>
