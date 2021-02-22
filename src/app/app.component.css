@@ -1,0 +1,52 @@
+
+
+.container{
+    display: inline-flex;
+    width: 30%;
+    justify-content: center;
+    vertical-align: top;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    
+
+}
+
+mat-card{
+    width: 100%;
+    box-shadow: 0px 0px 15px -7px rgba(0,0,0,0.35);
+    margin-top: 15px;
+}
+
+.statutAFaire{
+    background:rgb(231, 102, 102);
+}
+
+.statutEnCours{
+    background:rgb(236, 151, 52);
+}
+
+.statutTermine{
+    background: rgb(181, 226, 92);
+}
+mat-card-actions{
+    padding: 0px 0px 0px 0px;
+}
+
+h1{
+    text-align: center;
+}
+
+
+.new{
+    width: fit-content;
+    margin: 0 auto;
+    
+}
+
+.headerContainer{
+    width:100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
