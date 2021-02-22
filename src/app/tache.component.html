@@ -1,0 +1,15 @@
+<mat-card class="{{tache.statut === 'A faire' ? 'statutAFaire' :
+                   tache.statut === 'En cours' ? 'statutEnCours' :
+                   tache.statut === 'Terminé' ? 'statutTermine' :
+                   'noClass'}}" >
+    <mat-card-header>
+      <mat-card-title>{{ tache.description }}</mat-card-title>
+      <mat-card-actions>
+        <img title="Supprimer" style="cursor: pointer; float:right; margin-left: 5px;"
+          (click)="supprimer(tache)" width="15"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1024px-Flat_cross_icon.svg.png" />
+        <img src="https://findicons.com/files/icons/977/rrze/720/pen.png" title="Modifier"
+          style="cursor: pointer;float:right; margin-left: 5px;" (click)="modifier(tache)" width="15" />
+      </mat-card-actions>
+    </mat-card-header>
+  </mat-card>

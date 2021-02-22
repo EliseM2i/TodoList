@@ -4,8 +4,9 @@
 import { Component } from '@angular/core';
 import { Statut, Taches } from './tache';
 
+
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 }) 
@@ -56,10 +57,7 @@ export class AppComponent {
     }
   }
 
-  supprimer(tache:Taches){
-    let index = this.listeTache.indexOf(tache);
-    this.listeTache.splice(index,1)
-  }
+  
 
   onKeyUp(event) 
   {
@@ -67,33 +65,8 @@ export class AppComponent {
     this.nouvelleTache = event.target.value;
   }
 
-  agrandir(event){
-    event.target.style.width = "25px"
-  }
+ 
 
-  retrecir(event){
-    event.target.style.width = "15px"
-  }
 
-  modifier(tache:Taches){
-    let index = this.listeTache.indexOf(tache);
-    let nouveau = prompt("Modifiez la tâche", tache.description);
-    if(nouveau != undefined && nouveau.length >= 5){
-      this.listeTache[index].description = nouveau;
-    } else {
-      alert("La tâche doit faire plus de 5 caractères")
-    }
 
-  //   if(tache.statut === Statut.TODO){
-  //     tache.statut = Statut.DOING;
-  //   } else if(tache.statut === Statut.DOING){
-  //     tache.statut = Statut.DONE;
-  //   }
-  // }
-
-  // propose de modifier le statut quand on clique
-  // modifierStatut(){
-
-  // }
-}
 }

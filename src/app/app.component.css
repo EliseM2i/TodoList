@@ -1,20 +1,28 @@
-
+/** Ajout du style pour le container parent. C'est lui qui doit avoir le inline-flex, afin que ses containers enfants soient en ligne */
+.containerParent{
+    display: inline-flex; /* affiche les containers en ligne */
+    width: 100%; /* prends toute la largeur de la page */
+}
 
 .container{
-    display: inline-flex;
-    width: 30%;
+    /*Ancien*/
+
+    /* display: inline-flex; --> les cartes n'ont pas besoin d'être en ligne*/ 
+    /*width: 30%;*/ 
     justify-content: center;
     vertical-align: top;
     flex-wrap: wrap;
     margin-top: 50px;
-    
 
+    flex: 1 1 100%; /* ne prends plus 30% car 10% restant qui font chier et pas évolutif. A 100%, le container prendra le plus de place possible, si les autres prenne aussi 100%, alors la page affichera les containers avec une largeur équitable automatiquement (soit 33.333333...%)*/
 }
 
 mat-card{
-    width: 100%;
+    /* width: 100%; --> les cards se gèrent toute seules, il n'y avait pas besoin de mettre a 100%, ca faisait deborder au final*/
     box-shadow: 0px 0px 15px -7px rgba(0,0,0,0.35);
-    margin-top: 15px;
+    /* margin-top: 15px; --> replacement par le margin ci dessous*/
+    
+    margin: 10px 10px 10px 10px;
 }
 
 .statutAFaire{
@@ -40,7 +48,6 @@ h1{
 .new{
     width: fit-content;
     margin: 0 auto;
-    
 }
 
 .headerContainer{
@@ -49,4 +56,6 @@ h1{
     font-size: 20px;
     font-weight: bolder;
 }
+
+
 
